@@ -157,7 +157,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 #### 2.2.1 缩进
 
 
-##### [强制] 使用 `4` 个空格做为一个缩进层级，不允许使用 `2` 个空格 或 `tab` 字符。
+##### [强制] 使用 `tab` 字符 做为一个缩进层级，不允许使用 `2` 个空格 或 `4` 个空格。
 
 
 
@@ -538,11 +538,11 @@ setTimeout(
 );
 
 order.data.read(
-    'id=' + me.model.id, 
+    'id=' + me.model.id,
     function (data) {
         me.attchToModel(data.result);
         callback();
-    }, 
+    },
     300
 );
 
@@ -1503,14 +1503,14 @@ var hangModules = [],
 
 ##### [强制] 变量必须 `即用即声明`，不得在函数或其它形式的代码块起始位置统一声明所有变量。
 
-解释： 
+解释：
 
 变量声明与使用的距离越远，出现的跨度越大，代码的阅读与维护成本越高。虽然JavaScript的变量是函数作用域，还是应该根据编程中的意图，缩小变量出现的距离空间。
 
 
 示例：
 
-```javascript 
+```javascript
 // good
 function kv2List(source) {
     var list = [];
@@ -1684,7 +1684,7 @@ switch (typeof variable) {
 var type = typeof variable;
 if (type === 'object') {
     // ......
-} 
+}
 else if (type === 'number' || type === 'boolean' || type === 'string') {
     // ......
 }
@@ -1997,7 +1997,7 @@ var str2 = '' // 建议第一个为空字符串, 第二个换行开始并缩进�
 
 ##### [强制] 使用对象字面量 `{}` 创建新 `Object`。
 
-示例： 
+示例：
 
 ```javascript
 // good
@@ -2009,7 +2009,7 @@ var obj = new Object();
 
 ##### [强制] 对象创建时，如果一个对象的所有 `属性` 均可以不添加引号，则所有 `属性` 不得添加引号。
 
-示例： 
+示例：
 
 ```javascript
 var info = {
@@ -2025,7 +2025,7 @@ var info = {
 如果属性不符合 Identifier 和 NumberLiteral 的形式，就需要以 StringLiteral 的形式提供。
 
 
-示例： 
+示例：
 
 ```javascript
 // good
@@ -2045,7 +2045,7 @@ var info = {
 
 ##### [强制] 不允许修改和扩展任何原生对象和宿主对象的原型。
 
-示例： 
+示例：
 
 ```javascript
 // 以下行为绝对禁止
@@ -2062,7 +2062,7 @@ String.prototype.trim = function () {
 通常在 JavaScript 中声明的对象，属性命名是使用 Camel 命名法，用 `.` 来访问更清晰简洁。部分特殊的属性(比如来自后端的JSON)，可能采用不寻常的命名方式，可以通过 `[expr]` 方式访问。
 
 
-示例： 
+示例：
 
 ```javascript
 info.age;
@@ -2389,7 +2389,7 @@ MyClass.prototype.hooks.after = EMPTY_FUNCTION;
 ```javascript
 /**
  * 构建类之间的继承关系
- * 
+ *
  * @param {Function} subClass 子类函数
  * @param {Function} superClass 父类函数
  */
@@ -2428,7 +2428,7 @@ Animal.prototype.jump = function () {
 
 ##### [建议] 属性在构造函数中声明，方法在原型中声明。
 
-解释： 
+解释：
 
 原型对象的成员被所有实例共享，能节约内存占用。所以编码时我们应该遵守这样的原则：原型对象包含程序不会修改的成员，如方法函数或配置项。
 
@@ -2881,6 +2881,3 @@ expando 属性绑定事件容易导致互相覆盖。
 
 
 ##### [建议] 在没有事件自动管理的框架支持下，应持有监听器函数的引用，在适当时候（元素释放、页面卸载等）移除添加的监听器。
-
-
-
